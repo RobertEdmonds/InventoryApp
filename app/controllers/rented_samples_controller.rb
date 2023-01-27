@@ -1,0 +1,2 @@
+class RentedSamplesController < ApplicationController
+end
