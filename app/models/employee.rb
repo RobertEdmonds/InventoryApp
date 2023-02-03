@@ -14,7 +14,11 @@ class Employee < ApplicationRecord
     has_many :products, through: :orders
     has_many :samples, through: :rented_samples
 
-    validates :name, presence: true, uniqueness: true 
+    validates :name, presence: true
     validates :phone_number, presence: true, uniqueness: true 
-    validates :password, format: PASSWORD_REQUIREMENTS, confirmation: true, unless: {|employee| employee.amount_of_logins == 0} 
+    validates :password, format: PASSWORD_REQUIREMENTS, confirmation: true, if: :has_logged_in?
+
+    def has_logged_in? 
+        self.amount_of_logins >= 1
+    end
 end

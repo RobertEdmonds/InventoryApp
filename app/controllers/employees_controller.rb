@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
     skip_before_action :authorize, only: [:create, :index]
-    before_action :authorize_user, only: [:update_employee] 
+    before_action :authorize_user, only: [:update_employee, :create] 
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity 
 
     def index 
@@ -42,11 +42,6 @@ class EmployeesController < ApplicationController
 
     def update_employee_params 
         params.permit(:boss)
-    end
-
-    def authorize_user
-        user_can_see = current_user.employee?
-        render json: { error: "Ah ah ah, you didn't say the magic word" }, status: :forbidden unless user_can_see
     end
 
     def render_unprocessable_entity(invalid)

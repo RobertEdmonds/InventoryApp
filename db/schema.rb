@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_02_171229) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
-    t.integer "amount_of_logins"
+    t.integer "amount_of_logins", default: 0
   end
 
   create_table "orders", force: :cascade do |t|

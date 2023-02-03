@@ -13,6 +13,11 @@ class ApplicationController < ActionController::API
         return render json: { errors: ["Not authorize customer"] }, status: :unauthorized unless current_user
     end
 
+    def authorize_user
+        user_can_see = current_user.boss?
+        render json: { error: "Ah ah ah, you didn't say the magic word" }, status: :forbidden unless user_can_see
+    end
+
     def render_unprocessable_entity(invalid)
         render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity 
     end 
