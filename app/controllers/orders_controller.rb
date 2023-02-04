@@ -6,5 +6,8 @@ class OrdersController < ApplicationController
     end
 
     def create 
-        
+        order = current_user.orders.create!(order_params)
+        render json: order, status: :created 
+    end
+
 end

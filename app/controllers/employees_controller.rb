@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
-    skip_before_action :authorize, only: [:create, :index]
-    before_action :authorize_user, only: [:update_employee, :create] 
+    skip_before_action :authorize
+    before_action :authorize_user, only: [:index, :create] 
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity 
 
     def index 
@@ -33,7 +33,7 @@ class EmployeesController < ApplicationController
     private 
 
     def employee_params 
-        params.permit(:name, :phone_number, :password, :password_confirmation)
+        params.permit(:name, :phone_number, :password, :password_confirmation, username:)
     end
 
     def update_employee_params 

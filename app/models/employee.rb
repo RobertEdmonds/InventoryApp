@@ -15,6 +15,7 @@ class Employee < ApplicationRecord
     has_many :samples, through: :rented_samples
 
     validates :name, presence: true
+    validates :username, presence: true, uniqueness: true
     validates :phone_number, presence: true, uniqueness: true 
     validates :password, format: PASSWORD_REQUIREMENTS, confirmation: true
 
