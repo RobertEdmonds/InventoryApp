@@ -8,12 +8,8 @@ class EmployeesController < ApplicationController
     end
 
     def create
-        if employee.amount_of_logins == 0
-            employee = Employee.create!(employee_params)
-        else
-            employee = Employee.update!(employee_params)
-            session[:employee_id] = employee.id 
-        end
+        employee = Employee.update!(employee_params)
+        session[:employee_id] = employee.id 
         render json: employee, status: :created 
     end
 
@@ -37,11 +33,11 @@ class EmployeesController < ApplicationController
     private 
 
     def employee_params 
-        params.permit(:name, :phone_number)
+        params.permit(:name, :phone_number, :password, :password_confirmation)
     end
 
     def update_employee_params 
-        params.permit(:boss)
+        params.permit(:boss, :password, :password_confirmation)
     end
 
     def render_unprocessable_entity(invalid)

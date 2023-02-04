@@ -16,9 +16,6 @@ class Employee < ApplicationRecord
 
     validates :name, presence: true
     validates :phone_number, presence: true, uniqueness: true 
-    validates :password, format: PASSWORD_REQUIREMENTS, confirmation: true, if: :has_logged_in?
+    validates :password, format: PASSWORD_REQUIREMENTS, confirmation: true
 
-    def has_logged_in? 
-        self.amount_of_logins >= 1
-    end
 end
