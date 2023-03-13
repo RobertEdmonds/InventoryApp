@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-    skip_before_action :authorize
     before_action :set_order, only: [:update, :show, :destroy]
     before_action :find_user, exclude: [:index]
 
@@ -37,7 +36,7 @@ class OrdersController < ApplicationController
     end
 
     def find_user 
-        @active_user = User.find(params[:id])
+        @active_user = User.find(params[:user_id])
         render json: { error: "You have not submitted customer information"}, status: :forbidden unless @active_user
     end 
 

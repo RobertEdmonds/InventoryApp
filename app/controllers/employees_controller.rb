@@ -1,5 +1,4 @@
 class EmployeesController < ApplicationController
-    skip_before_action :authorize
     before_action :authorize_user, only: [:index, :create] 
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity 
 
