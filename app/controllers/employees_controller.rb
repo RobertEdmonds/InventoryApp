@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-    before_action :authorize_user, only: [:index, :create] 
+    before_action :authorize_user, only: [:index] 
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity 
 
     def index 
