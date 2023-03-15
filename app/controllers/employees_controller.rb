@@ -29,10 +29,16 @@ class EmployeesController < ApplicationController
         render json: employee, status: :created 
     end
 
+    def destroy
+        employee = Employee.find(params[:id])
+        employee.destroy
+        head :no_content
+    end
+
     private 
 
     def employee_params 
-        params.permit(:name, :phone_number, :password, :password_confirmation, username:)
+        params.permit(:name, :phone_number, :password, :password_confirmation, :username)
     end
 
     def update_employee_params 
