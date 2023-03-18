@@ -14,7 +14,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_04_190304) do
   create_table "employees", force: :cascade do |t|
     t.string "name"
     t.integer "phone_number"
-    t.boolean "boss"
+    t.boolean "boss", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
