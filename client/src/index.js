@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from "react-router-dom";
 import './styles/index.css';
 import App from './component/App';
+import { EmployeeProvider } from './context/Employee';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <App />
+    <EmployeeProvider>
+      <App />
+    </EmployeeProvider>
   </BrowserRouter>
 );
 
