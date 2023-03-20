@@ -29,7 +29,7 @@ function Login(){
           if (r.ok) {
             r.json().then((user) => {
               setEmployee(user)
-              history.push("/");
+              history("/");
             })
             console.log(employee)
             setUsername("");
