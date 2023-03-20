@@ -12,7 +12,6 @@ class Employee < ApplicationRecord
     has_many :orders 
     has_many :rented_samples
     has_many :products, through: :orders
-    has_many :samples, through: :rented_samples
 
     validates :name, presence: true
     validates :username, presence: true, uniqueness: true

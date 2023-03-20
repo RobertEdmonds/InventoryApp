@@ -4,7 +4,7 @@ import { EmployeeContext } from "../context/Employee.js";
 
 
 function Login(){
-    const { setEmployee } = useContext(EmployeeContext);
+    const { setEmployee, employee } = useContext(EmployeeContext);
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
@@ -13,7 +13,7 @@ function Login(){
     
     function handleSubmit(e) {
         e.preventDefault();
-        setLoading(false);
+        setLoading(true);
         const dataForm = {
           username,
           password,
@@ -30,42 +30,49 @@ function Login(){
             r.json().then((user) => {
               setEmployee(user)
               history.push("/");
-            });
+            })
+            console.log(employee)
             setUsername("");
             setPassword("");
           } else {
-            r.json().then((err) => setError(err.errors));
+            r.json().then((err) => {
+                console.log(err)
+                setError(err.errors)
+            });
           }
         });
       }
     return(
         <>
-            <ul className="errorStyle">
             {error.map((err) => {
-            return <li key={err}>{err}</li>;
+            return <div className="alert alert-danger" role="alert" key={err}>{err}</div>;
             })}
-            </ul>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                    <label htmlFor="formGroupExampleInput" className="form-label">Example label</label>
+                    <label htmlFor="formGroupExampleInput" className="form-label">Username</label>
                     <input 
                         type="text" 
                         className="form-control" 
                         id="formGroupExampleInput" 
-                        placeholder="Example input placeholder" 
+                        placeholder="Username" 
                         value={username}
                         onChange={e => setUsername(e.target.value.trim())} />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="formGroupExampleInput2" className="form-label">Another label</label>
+                    <label htmlFor="formGroupExampleInput2" className="form-label">Password</label>
                     <input 
-                        type="text" 
+                        type="password" 
                         className="form-control" 
                         id="formGroupExampleInput2" 
-                        placeholder="Another input placeholder"
+                        placeholder="Password"
                         value={password}
                         onChange={e => setPassword(e.target.value)}/>
                 </div>
+                {loading ? (
+                    <button  className="btn btn-warning">Warning</button>
+                ):(
+                    <button type="submit" className="btn btn-success">Success</button>
+                )}
             </form>
             <button onClick={() => setLoading(!loading)}></button>
         </>
