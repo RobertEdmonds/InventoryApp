@@ -1,4 +1,6 @@
+import React from 'react';
 import '../styles/App.css';
+
 import { Routes, Route } from 'react-router-dom'
 import NavBar from './NavBar';
 import Homepage from './Homepage';
@@ -8,10 +10,10 @@ function App() {
   return (
     <div className="App">
       <h1>Hello</h1>
-      <Login />
       <NavBar />
       <Routes>
-        <Route path="/" element={<Homepage/>}/>
+        <Route path="/" exact element={<Homepage/>}/>
+        <Route path="/login" element={<Login />}/>
       </Routes>
     </div>
   );
