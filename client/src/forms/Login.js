@@ -9,7 +9,7 @@ function Login(){
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState([])
-    const history = useNavigate()
+    const navigate = useNavigate()
     
     function handleSubmit(e) {
         e.preventDefault();
@@ -29,7 +29,7 @@ function Login(){
           if (r.ok) {
             r.json().then((user) => {
               setEmployee(user)
-              history("/");
+              navigate("/");
             })
             console.log(employee)
             setUsername("");
