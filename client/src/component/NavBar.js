@@ -12,7 +12,7 @@ function NavBar(){
                 {!!employee && (
                 <li className="nav-item">
                     <NavLink
-                        to="/home"
+                        to="/"
                         className="nav-link"
                     >
                     Home

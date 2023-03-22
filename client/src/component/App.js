@@ -22,10 +22,7 @@ function App() {
       <h1>Hello</h1>
       <NavBar />
       <Routes>
-        <Route path="/" exact element={<Homepage />}/>
-        {!!employee && (
-        <Route path="/home" element={<Homepage/>}/>
-        )}
+        <Route path="/" element={<Homepage/>}/>
         {!employee && (
         <Route path="/login" element={<Login />}/>
         )}
