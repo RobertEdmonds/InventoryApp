@@ -6,6 +6,12 @@ function Homepage(){
     const { setEmployee, employee } = useContext(EmployeeContext)
     const navigate = useNavigate()
 
+    useEffect(() => {
+        if(!employee){
+            navigate("/login")
+        }
+    },[navigate, employee])
+    
     function handleLogout() {
         fetch("/logout", { method: "DELETE" }).then((r) => {
           if (r.ok) {
@@ -13,14 +19,8 @@ function Homepage(){
             navigate("/login")
           }
         });
-      }
-    
-    useEffect(() => {
-        if(!employee){
-            navigate("/login")
-        }
-    },[navigate, employee])
-
+    }
+      
     return(
         <div>
             <h1>Hello World</h1>

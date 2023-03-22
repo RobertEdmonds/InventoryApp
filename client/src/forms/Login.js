@@ -69,9 +69,13 @@ function Login(){
                         onChange={e => setPassword(e.target.value)}/>
                 </div>
                 {loading ? (
-                    <button  className="btn btn-warning">Warning</button>
+                    <button className="btn btn-primary" type="button" disabled>
+                        Loading...
+                        <br/>
+                    <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  </button>
                 ):(
-                    <button type="submit" className="btn btn-success">Success</button>
+                    <button type="submit" className="btn btn-primary">Login</button>
                 )}
             </form>
             <button onClick={() => setLoading(!loading)}></button>
