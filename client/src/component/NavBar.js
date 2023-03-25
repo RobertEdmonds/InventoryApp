@@ -10,24 +10,34 @@ function NavBar(){
         <>
             <ul className="nav nav-tabs">
                 {!!employee && (
-                <li className="nav-item">
-                    <NavLink
-                        to="/"
-                        className="nav-link"
-                    >
-                    Home
-                    </NavLink>
-                </li>
-                )}
-                {!employee && (
+                    <>
                     <li className="nav-item">
                         <NavLink
-                            to="/login"
+                            to="/"
                             className="nav-link"
                         >
-                        Login
+                        Home
                         </NavLink>
                     </li>
+                    <li className="nav-item">
+                        <NavLink
+                            to="/tile"
+                            className="nav-link"
+                        >
+                            Tile
+                        </NavLink>
+                    </li>
+                    </>
+                )}
+                {!employee && (
+                <li className="nav-item">
+                    <NavLink
+                        to="/login"
+                        className="nav-link"
+                    >
+                    Login
+                    </NavLink>
+                </li>
                 )}
             </ul>
         </>

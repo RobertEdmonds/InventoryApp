@@ -1,16 +1,10 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { EmployeeContext } from "../context/Employee.js";
 
 function Homepage(){
-    const { setEmployee, employee } = useContext(EmployeeContext)
+    const { setEmployee } = useContext(EmployeeContext)
     const navigate = useNavigate()
-
-    useEffect(() => {
-        if(!employee){
-            navigate("/login")
-        }
-    },[navigate, employee])
     
     function handleLogout() {
         fetch("/logout", { method: "DELETE" }).then((r) => {
