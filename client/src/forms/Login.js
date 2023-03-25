@@ -4,7 +4,7 @@ import { EmployeeContext } from "../context/Employee.js";
 
 
 function Login(){
-    const { setEmployee, employee } = useContext(EmployeeContext);
+    const { setEmployee } = useContext(EmployeeContext);
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
@@ -31,12 +31,10 @@ function Login(){
               setEmployee(user)
               navigate("/");
             })
-            console.log(employee)
             setUsername("");
             setPassword("");
           } else {
             r.json().then((err) => {
-                console.log(err)
                 setError(err.errors)
             });
           }

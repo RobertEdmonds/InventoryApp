@@ -10,7 +10,7 @@ import Product from './Product';
 function App() {
   const {setEmployee, employee} = useContext(EmployeeContext)
   const navigate = useNavigate()
-  console.log(employee)
+
   useEffect(() => {
     fetch("/me").then((resp) => {
       if (resp.ok) {
