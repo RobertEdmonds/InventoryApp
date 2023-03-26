@@ -10,10 +10,13 @@ function Product(){
         })
     },[])
 
+    function handleSingleProduct(id){
+        console.log(id)
+    }
+
     return(
         <div>
             {product.map(tile => {
-                console.log(tile.pictures[0].picture_url)
                 return(
                     <div className="card" style={{width: "18rem"}} key={tile.id}>
                         <img src={tile.pictures[0].picture_url} className="card-img-top" alt="tile"/>
@@ -22,7 +25,7 @@ function Product(){
                             <h6 className="card-title">${tile.cost}</h6>
                             <p className="card-text">{tile.description}</p>
                             <p className="card-text">{tile.inventory}</p>
-                            <button href="#" className="btn btn-primary">Go somewhere</button>
+                            <button className="btn btn-primary" onClick={() => handleSingleProduct(tile.id)}>Go somewhere</button>
                         </div>
                     </div>
                 )
