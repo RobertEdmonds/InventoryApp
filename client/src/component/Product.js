@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function Product(){
+function Product({setShowProductId}){
     const [product, setProduct] = useState([])
+    const navigate = useNavigate()
+
     useEffect(() => {
         fetch("/products").then(r => {
             if(r.ok){
@@ -11,7 +14,8 @@ function Product(){
     },[])
 
     function handleSingleProduct(id){
-        console.log(id)
+        setShowProductId(id)
+        navigate(`/tile/${id}`)
     }
 
     return(
