@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :rented_samples
   resources :pictures, only: [:index, :create, :destroy]
-  resources :samples, only: [:create, :index, :destroy, :update, :show]
-  resources :products, only: [:create, :index, :destroy, :update, :show]
+  resources :samples
+  resources :products
   resources :orders
   # resources :employees
   resources :users

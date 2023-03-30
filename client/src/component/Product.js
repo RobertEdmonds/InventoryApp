@@ -22,8 +22,8 @@ function Product(){
             <div className="row">
                 {product.map(tile => {
                     return(
-                        <div className="col">
-                            <div className="card" style={{width: "18rem"}} key={tile.id}>
+                        <div className="col" key={tile.id}>
+                            <div className="card" style={{width: "18rem"}}>
                                 <img src={tile.pictures[0].picture_url} className="card-img-top" alt="tile"/>
                                 <div className="card-body">
                                     <h5 className="card-title">{tile.name}</h5>

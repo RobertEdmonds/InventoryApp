@@ -27,6 +27,14 @@ function NavBar(){
                             Tile
                         </NavLink>
                     </li>
+                    <li className="nav-item">
+                        <NavLink
+                            to="/customer"
+                            className="nav-link"
+                        >
+                            Customer
+                        </NavLink>
+                    </li>
                     </>
                 )}
                 {!employee && (

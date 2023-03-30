@@ -4,13 +4,16 @@ import { BrowserRouter } from "react-router-dom";
 import './styles/index.css';
 import App from './component/App';
 import { EmployeeProvider } from './context/Employee';
+import { CustomerProvider } from './context/Customer';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <EmployeeProvider>
-      <App />
+      <CustomerProvider>
+        <App />
+      </CustomerProvider>
     </EmployeeProvider>
   </BrowserRouter>
 );

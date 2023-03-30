@@ -1,8 +1,7 @@
 function ShowProduct({product, productId}){
-    console.log(product.filter(tile => tile.id === productId).map(tile => tile))
 
     return(
-        <div className="modal fade" id='tileModal' tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade" id='tileModal' tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-lg">
                 <div className="modal-content">
         {product

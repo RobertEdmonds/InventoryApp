@@ -1,20 +1,17 @@
-import React, { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
-import { EmployeeContext } from "../context/Employee.js";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CustomerContext = React.createContext();
 
 function CustomerProvider({ children }) {
   const [customer, setCustomer] = useState(null);
-  const { setEmployee } = useContext(EmployeeContext);
-  const history = useHistory();
+  const navigate = useNavigate()
 
   function handleLogout() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
-        setEmployee(null);
         setCustomer(null);
-        history.push("/");
+        navigate("/");
       }
     });
   }

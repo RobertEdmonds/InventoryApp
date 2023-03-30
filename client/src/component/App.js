@@ -6,6 +6,7 @@ import NavBar from './NavBar';
 import Homepage from './Homepage';
 import Login from '../forms/Login';
 import Product from './Product';
+import CustPage from './CustPage';
 // import ShowProduct from './ShowProduct';
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage/>}/>
         <Route path='/tile' element={<Product />}/>
-        {/* <Route path={`/tile/${showProductId}`} element={<ShowProduct />}/> */}
+        <Route path='/customer' element={<CustPage />}/>
         {!employee && (
         <Route path="/login" element={<Login />}/>
         )}
