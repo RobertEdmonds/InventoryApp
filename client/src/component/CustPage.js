@@ -39,6 +39,26 @@ function CustPage(){
                     onChange={e => setValue(e.target.value)}
                     />
             </div>
+            <div className="container text-center">
+                <div className="row">
+            {filterCustomer.map(cust => {
+                return(
+                    <div className="col" key={cust.id}>
+                        <div className="card" style={{width: "18rem;"}}>
+                            <div className="card-body">
+                                <h5 className="card-title">{cust.name}</h5>
+                                <h6 className="card-subtitle mb-2 text-body-secondary">{cust.phone_number}</h6>
+                                <p className="card-text">{cust.email}</p>
+                                <p className="card-text">{cust.address}<br/>{cust.city}, {cust.state} {cust.zip_code}</p>
+                                <button className="card-link btn btn-primary">Samples</button>
+                                <button className="card-link btn btn-primary">Orders</button>
+                            </div>
+                        </div>
+                    </div>
+                )
+            })}
+                </div>
+            </div>
         </div>
     )
 }
